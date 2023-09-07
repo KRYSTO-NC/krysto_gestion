@@ -1,36 +1,49 @@
-import { useNavigate } from "react-router-dom";
-import { Navbar, Nav, Container,  NavDropdown } from "react-bootstrap";
-import { FaHome, FaPhone, FaSolarPanel, FaUser, FaUserAltSlash, FaUserTimes, FaWrench } from "react-icons/fa";
-import { LinkContainer } from "react-router-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
-import { useLogoutMutation } from "../slices/userApiSlice";
-import { logout } from "../slices/authSlice";
+import { useNavigate } from 'react-router-dom'
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import {
+  FaBuilding,
+  FaHome,
+  FaPhone,
+  FaProductHunt,
+  FaSolarPanel,
+  FaTrash,
+  FaTruck,
+  FaUser,
+  FaUserAltSlash,
+  FaUserTimes,
+  FaWineBottle,
+  FaWrench,
+} from 'react-icons/fa'
+import { LinkContainer } from 'react-router-bootstrap'
+import { useSelector, useDispatch } from 'react-redux'
+import { useLogoutMutation } from '../slices/userApiSlice'
+import { logout } from '../slices/authSlice'
 
-import logo from "../assets/logo.svg";
+import logo from '../assets/logo.svg'
 
 const Header = () => {
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth)
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const [logoutApiCall] = useLogoutMutation();
+  const [logoutApiCall] = useLogoutMutation()
 
   const logoutHandler = async () => {
     try {
-      await logoutApiCall().unwrap();
-      dispatch(logout());
-      navigate("/");
+      await logoutApiCall().unwrap()
+      dispatch(logout())
+      navigate('/')
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   return (
     <header className="header">
       <Navbar bg="light" variant="light" expand="lg" collapseOnSelect>
         <Container>
-          <LinkContainer to={"/"}>
+          <LinkContainer to={'/'}>
             <Navbar.Brand>
               <img className="header-logo" src={logo} alt="" />
             </Navbar.Brand>
@@ -40,39 +53,79 @@ const Header = () => {
             <Nav className="ms-auto">
               {userInfo ? (
                 <>
-               <LinkContainer to={"/home"}>
-                  <Nav.Link>
-                    <FaHome/> Accueil
-                  </Nav.Link>
-               </LinkContainer>
-              
-                 <LinkContainer to={"/contacts"}>
-                 <Nav.Link>
-                   {" "}
-                   <FaPhone/> contacts
-                 </Nav.Link>
-               </LinkContainer>
-                <NavDropdown title={userInfo?.name} id="username">
-                  <LinkContainer to={"/profile"}>
-                    <NavDropdown.Item> <FaUser/> Profile</NavDropdown.Item>
+                  <LinkContainer to={'/home'}>
+                    <Nav.Link>
+                      <FaHome /> Accueil
+                    </Nav.Link>
                   </LinkContainer>
-                  <NavDropdown.Item onClick={logoutHandler}>
-                   <FaUserAltSlash/> Deconnexion
-                  </NavDropdown.Item>
-                </NavDropdown>
+                  <NavDropdown title="Productions" id="basic-nav-dropdown">
+
+                  <LinkContainer to={'/produits'}>
+                    <Nav.Link>
+                      <FaProductHunt /> Produits
+                    </Nav.Link>
+                  </LinkContainer>
+                  </NavDropdown>
+                  <NavDropdown title="Plastique" id="basic-nav-dropdown">
+
+                  <LinkContainer to={'/collectes'}>
+                    <Nav.Link>
+                      <FaTruck /> Collectes
+                    </Nav.Link>
+                  </LinkContainer>
+
+                  <LinkContainer to={'/collectes'}>
+                    <Nav.Link>
+                      <FaWineBottle /> Stock plastique
+                    </Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to={'/collectes'}>
+                    <Nav.Link>
+                      <FaWineBottle /> Stock paillettes
+                    </Nav.Link>
+                  </LinkContainer>
+                  </NavDropdown>
+                  <NavDropdown title="Tiers" id="basic-nav-dropdown">
+                    <LinkContainer to={'/tiers'}>
+                      <Nav.Link>
+                        {' '}
+                        <FaBuilding /> tiers
+                      </Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to={'/contacts'}>
+                      <Nav.Link>
+                        {' '}
+                        <FaPhone /> contacts
+                      </Nav.Link>
+                    </LinkContainer>
+                  </NavDropdown>
+                  <NavDropdown title={userInfo?.name} id="username">
+                    <LinkContainer to={'/profile'}>
+                      <NavDropdown.Item>
+                        {' '}
+                        <FaUser /> Profile
+                      </NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      <FaUserAltSlash /> Deconnexion
+                    </NavDropdown.Item>
+                  </NavDropdown>
                 </>
               ) : (
-                <LinkContainer to={"/"}>
+                <LinkContainer to={'/'}>
                   <Nav.Link>
-                    {" "}
+                    {' '}
                     <FaUser /> se connecter
                   </Nav.Link>
                 </LinkContainer>
               )}
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown title="Admin" id="adminmenu">
-                  <LinkContainer to={"/admin/userlist"}>
-                    <NavDropdown.Item> <FaUserTimes/> Utilisteurs</NavDropdown.Item>
+                  <LinkContainer to={'/admin/userlist'}>
+                    <NavDropdown.Item>
+                      {' '}
+                      <FaUserTimes /> Utilisteurs
+                    </NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
               )}
@@ -81,7 +134,7 @@ const Header = () => {
         </Container>
       </Navbar>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

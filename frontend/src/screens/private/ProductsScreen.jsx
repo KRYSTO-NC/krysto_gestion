@@ -1,19 +1,19 @@
 import React from 'react';
-import { useGetContactsQuery } from '../../slices/dolibarr/dolliContactApiSlice';
+import { useGetProductsQuery } from '../../slices/dolibarr/dolliProductApiSlice';
 import { Button, Row } from 'react-bootstrap';
 import Loader from '../../components/shared/Loader';
 import Message from '../../components/shared/Message';
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaEye } from 'react-icons/fa';
 
-function ContactsScreen() {
-    const { data, isLoading, error, refetch } = useGetContactsQuery();
+function ProductsScreen() {
+    const { data, isLoading, error, refetch } = useGetProductsQuery();
 
     console.log(data);
 
     return (
         <Row>
-            <h1>Contacts</h1>
+            <h1>TIERS</h1>
             {isLoading ? (
                 <Loader />
             ) : error ? (
@@ -26,25 +26,24 @@ function ContactsScreen() {
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Refference</th>
                                 <th>Nom</th>
-                                <th>Prénom</th>
-                                <th>Organisation</th>
-                                <th>Adresse</th>
-                                <th>Email</th>
+                                <th>Prix</th>
+                                <th>En stock</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((contact) => (
-                                <tr key={contact.id}>
-                                    <td>{contact.id}</td>
-                                    <td>{contact.lastname}</td>
-                                    <td>{contact.firstname}</td>
-                                    <td>{contact.socname}</td>
-                                    <td>{contact.address || 'N/A'}</td>
-                                    <td>{contact.email}</td>
+                            {data.map((product) => (
+                                <tr key={product.id}>
+                                  
+                                    <td>{product.id}</td>
+                                    <td>{product.ref}</td>
+                                    <td>{product.label}</td>
+                                    <td>{Math.round(product.price)} XPF</td>
+                                    <td>{product.pmp}</td>
                                     <td>
-                                        <LinkContainer to={`/contact/${contact.id}`}>
+                                        <LinkContainer to={`/produit/${product.id}`}>
                                             <Button variant="success" className="btn-sm mx-2">
                                                 <FaEye />
                                             </Button>
@@ -60,4 +59,4 @@ function ContactsScreen() {
     );
 }
 
-export default ContactsScreen;
+export default ProductsScreen;

@@ -2,20 +2,20 @@ import { DOLIBAR_URL } from '../../constants/constants'
 import { DOLIBARR_API_KEY } from '../../constants/constants'
 import { apiSlice } from '../apiSlice'
 
-export const dolliApiSlice = apiSlice.injectEndpoints({
+export const dolliProductApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getContacts: builder.query({
+    getProducts: builder.query({
       query: () => ({
-        url: `${DOLIBAR_URL}/contacts`,
+        url: `${DOLIBAR_URL}/products`,
         headers: {
           DOLAPIKEY: DOLIBARR_API_KEY,
         },
       }),
       keepUnusedDataFor: 5,
     }),
-    getContactDetails: builder.query({
+    getProductDetails: builder.query({
       query: (id) => ({
-        url: `${DOLIBAR_URL}/contacts/${id}`,
+        url: `${DOLIBAR_URL}/products/${id}`,
         headers: {
           DOLAPIKEY: DOLIBARR_API_KEY,
         },
@@ -26,7 +26,7 @@ export const dolliApiSlice = apiSlice.injectEndpoints({
 })
 
 export const {
-  useGetContactsQuery,
-  useGetContactDetailsQuery,
+  useGetProductsQuery,
+  useGetProductDetailsQuery,
   // Ajoutez d'autres exports ici pour les autres queries, mutations, etc.
-} = dolliApiSlice
+} = dolliProductApiSlice

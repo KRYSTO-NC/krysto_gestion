@@ -18,6 +18,12 @@ import App from './App'
 import HomeScreen from './screens/private/HomeScreen'
 import ContactsScreen from './screens/private/ContactsScreen'
 import ProfileScreen from './screens/private/ProfileScreen'
+import ThirdPartiesScreen from './screens/private/ThirdPartiesScreen'
+import ThirdPartyScreen from './screens/private/ThirdPartyScreen'
+import ContactDetailsScreen from './screens/private/ContactDetailsScreen'
+import ProductsScreen from './screens/private/ProductsScreen'
+import ProductDetailsScreen from './screens/private/ProductDetailsScreen'
+import CollectesScreen from './screens/private/CollectesScreen'
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -25,8 +31,14 @@ const routes = createBrowserRouter(
       <Route index={true} path="/" element={<LoginScreen />} />
       <Route path="" element={<PrivateRoute />}>
         <Route path="/home" element={<HomeScreen />} />
+        <Route path="/produits" element={<ProductsScreen />} />
+        <Route path="/produit/:id" element={<ProductDetailsScreen />} />
         <Route path="/contacts" element={<ContactsScreen />} />
+        <Route path="/contact/:id" element={<ContactDetailsScreen />} />
+        <Route path="/tiers" element={<ThirdPartiesScreen />} />
+        <Route path="/tier/:id" element={<ThirdPartyScreen />} />
         <Route path="/profile" element={<ProfileScreen />}></Route>
+        <Route path="/collectes" element={<CollectesScreen />}></Route>
       </Route>
       <Route path="" element={<AdminRoute />}></Route>
     </Route>,
