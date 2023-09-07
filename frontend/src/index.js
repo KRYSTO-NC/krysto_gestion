@@ -24,6 +24,8 @@ import ContactDetailsScreen from './screens/private/ContactDetailsScreen'
 import ProductsScreen from './screens/private/ProductsScreen'
 import ProductDetailsScreen from './screens/private/ProductDetailsScreen'
 import CollectesScreen from './screens/private/CollectesScreen'
+import PlasticTypesScreen from './screens/private/PlasticTypesScreen'
+import RecipesListScreen from './screens/private/RecipesListScreen'
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +41,11 @@ const routes = createBrowserRouter(
         <Route path="/tier/:id" element={<ThirdPartyScreen />} />
         <Route path="/profile" element={<ProfileScreen />}></Route>
         <Route path="/collectes" element={<CollectesScreen />}></Route>
+        <Route
+          path="/types-de-plastique"
+          element={<PlasticTypesScreen />}
+        ></Route>
+        <Route path="/recettes" element={<RecipesListScreen />}></Route>
       </Route>
       <Route path="" element={<AdminRoute />}></Route>
     </Route>,

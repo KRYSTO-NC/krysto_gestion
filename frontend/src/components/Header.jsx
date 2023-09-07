@@ -1,18 +1,22 @@
 import { useNavigate } from 'react-router-dom'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import {
+  FaBalanceScale,
   FaBuilding,
+  FaGem,
   FaHome,
   FaPhone,
   FaProductHunt,
-  FaSolarPanel,
-  FaTrash,
+
+  FaRecycle,
+
   FaTruck,
+
   FaUser,
   FaUserAltSlash,
   FaUserTimes,
   FaWineBottle,
-  FaWrench,
+
 } from 'react-icons/fa'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
@@ -73,6 +77,16 @@ const Header = () => {
                       <FaTruck /> Collectes
                     </Nav.Link>
                   </LinkContainer>
+                  <LinkContainer to={'/types-de-plastique'}>
+                    <Nav.Link>
+                      <FaRecycle /> Types de plastiques
+                    </Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to={'/recettes'}>
+                    <Nav.Link>
+                      <FaBalanceScale /> recettes
+                    </Nav.Link>
+                  </LinkContainer>
 
                   <LinkContainer to={'/collectes'}>
                     <Nav.Link>
@@ -81,7 +95,7 @@ const Header = () => {
                   </LinkContainer>
                   <LinkContainer to={'/collectes'}>
                     <Nav.Link>
-                      <FaWineBottle /> Stock paillettes
+                      <FaGem /> Stock paillettes
                     </Nav.Link>
                   </LinkContainer>
                   </NavDropdown>
