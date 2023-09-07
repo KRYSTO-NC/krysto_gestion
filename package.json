@@ -1,0 +1,40 @@
+{
+
+  
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0"
+  },
+  "name": "krysto-gestion",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Application de gestion des recettes, stock de pailletes et plastique ainsi que la gestion des collectes auprés des fournisseur de plastique",
+  "main": "server.js",
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1"
+  },
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder.js",
+    "data:destroy": "node backend/seeder.js -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RFID-NC/krysto_gestion.git"
+  },
+  "author": "VELTEN Stoyann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RFID-NC/krysto_gestion/issues"
+  },
+  "homepage": "https://github.com/RFID-NC/krysto_gestion#readme"
+}

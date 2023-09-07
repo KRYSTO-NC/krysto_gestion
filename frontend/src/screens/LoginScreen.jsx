@@ -21,7 +21,7 @@ const LoginScreen = () => {
 
   const { search } = useLocation()
   const sp = new URLSearchParams(search)
-  const redirect = sp.get('redirect') || '/installations' // redirect to home page if no redirect query param
+  const redirect = sp.get('redirect') || '/home' // redirect to home page if no redirect query param
 
   useEffect(() => {
     if (userInfo) {

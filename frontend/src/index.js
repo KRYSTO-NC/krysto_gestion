@@ -15,12 +15,19 @@ import PrivateRoute from './components/shared/PrivateRoute'
 import AdminRoute from './components/shared/AdminRoute'
 // import './assets/styles/bootstrap.custom.css'
 import App from './App'
+import HomeScreen from './screens/private/HomeScreen'
+import ContactsScreen from './screens/private/ContactsScreen'
+import ProfileScreen from './screens/private/ProfileScreen'
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<LoginScreen />} />
-      <Route path="" element={<PrivateRoute />}></Route>
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/home" element={<HomeScreen />} />
+        <Route path="/contacts" element={<ContactsScreen />} />
+        <Route path="/profile" element={<ProfileScreen />}></Route>
+      </Route>
       <Route path="" element={<AdminRoute />}></Route>
     </Route>,
   ),
