@@ -26,6 +26,7 @@ import ProductDetailsScreen from './screens/private/ProductDetailsScreen'
 import CollectesScreen from './screens/private/CollectesScreen'
 import PlasticTypesScreen from './screens/private/PlasticTypesScreen'
 import RecipesListScreen from './screens/private/RecipesListScreen'
+import RawMaterialsScreen from './screens/private/RowMaterialsScreen'
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +35,13 @@ const routes = createBrowserRouter(
       <Route path="" element={<PrivateRoute />}>
         <Route path="/home" element={<HomeScreen />} />
         <Route path="/produits" element={<ProductsScreen />} />
+        <Route path="/produits/page/:page" element={<ProductsScreen />} />
+        <Route
+          path="/produits/categories/:category"
+          element={<ProductsScreen />}
+        />
+        <Route path="/produits/filter/:mode" element={<ProductsScreen />} />
+
         <Route path="/produit/:id" element={<ProductDetailsScreen />} />
         <Route path="/contacts" element={<ContactsScreen />} />
         <Route path="/contact/:id" element={<ContactDetailsScreen />} />
@@ -41,6 +49,11 @@ const routes = createBrowserRouter(
         <Route path="/tier/:id" element={<ThirdPartyScreen />} />
         <Route path="/profile" element={<ProfileScreen />}></Route>
         <Route path="/collectes" element={<CollectesScreen />}></Route>
+        <Route
+          path="/matiere-premieres"
+          element={<RawMaterialsScreen />}
+        ></Route>
+
         <Route
           path="/types-de-plastique"
           element={<PlasticTypesScreen />}

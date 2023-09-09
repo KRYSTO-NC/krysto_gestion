@@ -82,3 +82,13 @@ main {
     background-color: #3c4c5d;
     color: white;
   }
+
+  .service-row{
+    background-color: #2b85c1 !important;
+    
+    color: rgb(255, 255, 255) !important;
+  }
+  .product-row{
+    background-color: #1e9f51 !important;
+    color: rgb(255, 255, 255) !important;
+  }

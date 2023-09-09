@@ -88,14 +88,9 @@ const Header = () => {
                     </Nav.Link>
                   </LinkContainer>
 
-                  <LinkContainer to={'/collectes'}>
+                  <LinkContainer to={'/matiere-premieres'}>
                     <Nav.Link>
-                      <FaWineBottle /> Stock plastique
-                    </Nav.Link>
-                  </LinkContainer>
-                  <LinkContainer to={'/collectes'}>
-                    <Nav.Link>
-                      <FaGem /> Stock paillettes
+                      <FaGem /> Matières premières
                     </Nav.Link>
                   </LinkContainer>
                   </NavDropdown>

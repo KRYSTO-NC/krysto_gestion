@@ -1,32 +1,23 @@
 import React from 'react'
-import {
-  useGetProductsQuery,
-} from '../../slices/dolibarr/dolliProductApiSlice'
-import { Button, Row } from 'react-bootstrap'
+import { useGetProductsQuery } from '../../slices/dolibarr/dolliProductApiSlice'
 import Loader from '../../components/shared/Loader'
 import Message from '../../components/shared/Message'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Button } from 'react-bootstrap'
 import { FaEye } from 'react-icons/fa'
-import { useParams } from 'react-router-dom'
-import FilterBox from '../../components/shared/FilterBox'
-import Paginate from '../../components/shared/Paginate'
 
-function ProductsScreen() {
-  const { mode, page, category } = useParams()
-  const { data, isLoading, error } = useGetProductsQuery({
-    category,
-    mode,
-    page,
+const RowMaterialsScreen = () => {
+  const { data: rawMaterials, isLoading, error } = useGetProductsQuery({
+    variant_filter: '3',
   })
-
-
- 
-
- 
+  console.log('====================================')
+  console.log(rawMaterials)
+  console.log('====================================')
 
   return (
-    <Row>
-      <h1>Produits et services</h1>
+    <>
+      <h1>Matières premières</h1>
+
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -37,8 +28,6 @@ function ProductsScreen() {
         </Message>
       ) : (
         <>
-        <FilterBox />
-    
           <table className="table table-striped table-sm">
             <thead>
               <tr>
@@ -51,18 +40,13 @@ function ProductsScreen() {
               </tr>
             </thead>
             <tbody>
-            {data.data.map((product) => {
-
-
-    return (
-      <tr key={product.id}>
-        <td>{product.id}</td>
-        <td>{product.ref}</td>
- 
-        
-        <td>{product.label}</td>
-        <td>{Math.round(product.price)} XPF</td>
-        <td>
+              {rawMaterials.data.map((product) => (
+                <tr key={product.id}>
+                  <td>{product.id}</td>
+                  <td>{product.ref}</td>
+                  <td>{product.label}</td>
+                  <td>{Math.round(product.price)} XPF</td>
+                  <td>
                     {
                       product.stock_reel != null
                         ? typeof product.stock_reel === 'number'
@@ -72,27 +56,21 @@ function ProductsScreen() {
                           : product.stock_reel
                         : '0' // Laissez cette partie vide pour afficher uniquement "KG" lorsque la valeur est nulle
                     }{' '}
-                    
+                    KG
                   </td>
-        <td>
-          <LinkContainer to={`/produit/${product.id}`}>
-            <Button variant="success" className="btn-sm mx-2">
-              <FaEye />
-            </Button>
-          </LinkContainer>
-        </td>
-      </tr>
-    );
-  }
-
-)}
+                  <LinkContainer to={`/produit/${product.id}`}>
+                    <Button variant="success" className="btn-sm mx-2">
+                      <FaEye />
+                    </Button>
+                  </LinkContainer>
+                </tr>
+              ))}
             </tbody>
           </table>
-          {data && data.pagination && <Paginate pagination={data.pagination} />}
         </>
       )}
-    </Row>
+    </>
   )
 }
 
-export default ProductsScreen
+export default RowMaterialsScreen
