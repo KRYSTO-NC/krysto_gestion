@@ -7,7 +7,7 @@ export const dolliProductApiSlice = apiSlice.injectEndpoints({
     getProducts: builder.query({
       query: ({ mode, page, category, variant_filter }) => {
         // Commencez par les paramètres fixes.
-        let params = `pagination_data=true&limit=6`
+        let params = `pagination_data=true&limit=20`
 
         // Ajoutez les paramètres variables s'ils sont disponibles.
         if (category) {

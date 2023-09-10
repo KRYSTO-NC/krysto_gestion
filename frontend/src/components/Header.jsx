@@ -62,13 +62,27 @@ const Header = () => {
                       <FaHome /> Accueil
                     </Nav.Link>
                   </LinkContainer>
-                  <NavDropdown title="Productions" id="basic-nav-dropdown">
+                  <NavDropdown title="Catalogue" id="basic-nav-dropdown">
 
                   <LinkContainer to={'/produits'}>
                     <Nav.Link>
                       <FaProductHunt /> Produits
                     </Nav.Link>
                   </LinkContainer>
+                  <LinkContainer to={'/services'}>
+                    <Nav.Link>
+                      <FaProductHunt /> Services
+                    </Nav.Link>
+                  </LinkContainer>
+                  </NavDropdown>
+                  <NavDropdown title="Commerce" id="basic-nav-dropdown">
+
+                  <LinkContainer to={'/proposition-commercial'}>
+                    <Nav.Link>
+                      <FaProductHunt /> Proposition
+                    </Nav.Link>
+                  </LinkContainer>
+          
                   </NavDropdown>
                   <NavDropdown title="Plastique" id="basic-nav-dropdown">
 
@@ -98,7 +112,25 @@ const Header = () => {
                     <LinkContainer to={'/tiers'}>
                       <Nav.Link>
                         {' '}
-                        <FaBuilding /> tiers
+                        <FaBuilding /> Founisseur
+                      </Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to={'/tiers'}>
+                      <Nav.Link>
+                        {' '}
+                        <FaBuilding /> Partenaires
+                      </Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to={'/tiers'}>
+                      <Nav.Link>
+                        {' '}
+                        <FaBuilding /> Prospects
+                      </Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to={'/tiers'}>
+                      <Nav.Link>
+                        {' '}
+                        <FaBuilding /> Clients
                       </Nav.Link>
                     </LinkContainer>
                     <LinkContainer to={'/contacts'}>

@@ -41,7 +41,7 @@ const FilterBox = () => {
       ) : (
         <>
           <Row>
-            <Col>
+            {/* <Col>
               <Form onSubmit={submitHandler} className="d-flex my-5">
                 <Row>
                   <h5 className="m-xl-2">Filtrer par types:</h5>
@@ -64,7 +64,7 @@ const FilterBox = () => {
                   </Col>
                 </Row>
               </Form>
-            </Col>
+            </Col> */}
             <Col>
               <Form
                 onSubmit={submitFilterCategoryHandler}

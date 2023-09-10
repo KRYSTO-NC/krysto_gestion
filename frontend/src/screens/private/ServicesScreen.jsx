@@ -19,7 +19,7 @@ function ProductsScreen() {
 
   return (
     <Row>
-      <h1>Produits</h1>
+      <h1>Services</h1>
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -30,7 +30,7 @@ function ProductsScreen() {
         </Message>
       ) : (
         <>
-          <FilterBox />
+    
 
           <table className="table table-striped table-sm">
             <thead>
@@ -39,29 +39,20 @@ function ProductsScreen() {
                 <th>Refference</th>
                 <th>Nom</th>
                 <th>Prix</th>
-                <th>En stock</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               {data.data.map((product) => {
                 // Ajoutez une condition pour filtrer les produits
-                if (product.finished !== '0' && product.type === '0') {
+                if (product.finished !== '0' && product.type === '1') {
                   return (
                     <tr key={product.id}>
                       <td>{product.id}</td>
                       <td>{product.ref}</td>
                       <td>{product.label}</td>
                       <td>{Math.round(product.price)} XPF</td>
-                      <td>
-                        {product.stock_reel != null
-                          ? typeof product.stock_reel === 'number'
-                            ? product.stock_reel.toFixed(2)
-                            : typeof product.stock_reel === 'string'
-                            ? parseFloat(product.stock_reel).toFixed(2)
-                            : product.stock_reel
-                          : '0'}
-                      </td>
+                  
                       <td>
                         <LinkContainer to={`/produit/${product.id}`}>
                           <Button variant="success" className="btn-sm mx-2">

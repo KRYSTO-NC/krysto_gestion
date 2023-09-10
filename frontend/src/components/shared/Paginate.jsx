@@ -2,7 +2,7 @@ import React from "react";
 import { Pagination } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-const Paginate = ({ pagination }) => {
+const Paginate = ({ pagination , link}) => {
   const { total, page, page_count } = pagination;
 
   const pagesArray = [...Array(page_count).keys()];
@@ -14,7 +14,7 @@ const Paginate = ({ pagination }) => {
   return (
     <Pagination>
       {pagesArray.map((x) => (
-        <LinkContainer key={x} to={`/produits/page/${x}`}>
+        <LinkContainer key={x} to={`${link}/${x}`}>
           <Pagination.Item active={x === page}>{x + 1}</Pagination.Item>
         </LinkContainer>
       ))}
