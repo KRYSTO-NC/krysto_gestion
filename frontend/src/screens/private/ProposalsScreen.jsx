@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGetProposalsQuery } from '../../slices/dolibarr/dollluProposalApiSlice'
+import { useGetProposalsQuery } from '../../slices/dolibarr/dollliProposalApiSlice'
 import { Button, Row } from 'react-bootstrap'
 import Loader from '../../components/shared/Loader'
 import Message from '../../components/shared/Message'

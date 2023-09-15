@@ -15,7 +15,7 @@ import {
   FaUser,
   FaUserAltSlash,
   FaUserTimes,
-  FaWineBottle,
+
 
 } from 'react-icons/fa'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -166,6 +166,18 @@ const Header = () => {
                     <NavDropdown.Item>
                       {' '}
                       <FaUserTimes /> Utilisteurs
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to={'/admin/categories-de-produits'}>
+                    <NavDropdown.Item>
+                      {' '}
+                      <FaUserTimes /> Catégories de produits
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to={'/admin/entrepots-liste'}>
+                    <NavDropdown.Item>
+                      {' '}
+                      <FaUserTimes /> Entrepôts
                     </NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>

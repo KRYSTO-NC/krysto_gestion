@@ -31,6 +31,8 @@ import ServicesScreen from './screens/private/ServicesScreen'
 import ProposalsScreen from './screens/private/ProposalsScreen'
 import ProposalDetailsScreen from './screens/private/ProposalDetailsScreen'
 import PlasticTypeDetailsScreen from './screens/private/PlasticTypeDetailsScreen'
+import CategoriesScreen from './screens/private/admin/CategoriesScreen'
+import WarehousesListScreen from './screens/private/admin/WarehousesListScreen'
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -79,7 +81,16 @@ const routes = createBrowserRouter(
         ></Route>
         <Route path="/recettes" element={<RecipesListScreen />}></Route>
       </Route>
-      <Route path="" element={<AdminRoute />}></Route>
+      <Route path="" element={<AdminRoute />}>
+        <Route
+          path="/admin/categories-de-produits"
+          element={<CategoriesScreen />}
+        ></Route>
+        <Route
+          path="/admin/entrepots-liste"
+          element={<WarehousesListScreen />}
+        ></Route>
+      </Route>
     </Route>,
   ),
 )

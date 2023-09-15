@@ -46,6 +46,7 @@ export const dolliProductApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
+
     getProductDetails: builder.query({
       query: (id) => ({
         url: `${DOLIBAR_URL}/products/${id}`,

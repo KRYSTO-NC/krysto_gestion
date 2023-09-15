@@ -4,7 +4,7 @@ import {
   useCreateLineMutation,
   useDeleteProposalLineMutation,
   useGetProposalDetailsQuery,
-} from '../../slices/dolibarr/dollluProposalApiSlice'
+} from '../../slices/dolibarr/dollliProposalApiSlice'
 import { Badge, Button, Col, Row, Modal, Form, Dropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { FaEdit, FaExclamationTriangle, FaEye, FaTrash } from 'react-icons/fa'
