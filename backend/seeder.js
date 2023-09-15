@@ -2,9 +2,12 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import colors from 'colors'
 import users from './data/users.js'
+
 import User from './models/userModel.js'
 
 import connectDB from './config/db.js'
+import PlasticType from './models/plasticTypeModel.js'
+import plasticTypes from './data/plasticTypes.js'
 
 dotenv.config()
 
@@ -13,8 +16,10 @@ connectDB()
 const importData = async () => {
   try {
     await User.deleteMany()
+    await PlasticType.deleteMany()
 
     const createdUsers = await User.insertMany(users)
+    await PlasticType.insertMany(plasticTypes)
     const adminUser = createdUsers[0]._id
 
     console.log('Data Imported!'.green.inverse)

@@ -30,6 +30,7 @@ import RawMaterialsScreen from './screens/private/RowMaterialsScreen'
 import ServicesScreen from './screens/private/ServicesScreen'
 import ProposalsScreen from './screens/private/ProposalsScreen'
 import ProposalDetailsScreen from './screens/private/ProposalDetailsScreen'
+import PlasticTypeDetailsScreen from './screens/private/PlasticTypeDetailsScreen'
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -71,6 +72,10 @@ const routes = createBrowserRouter(
         <Route
           path="/types-de-plastique"
           element={<PlasticTypesScreen />}
+        ></Route>
+        <Route
+          path="/type-de-plastique/:id"
+          element={<PlasticTypeDetailsScreen />}
         ></Route>
         <Route path="/recettes" element={<RecipesListScreen />}></Route>
       </Route>

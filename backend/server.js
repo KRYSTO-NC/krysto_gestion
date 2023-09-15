@@ -5,6 +5,7 @@ dotenv.config()
 import connectDB from './config/db.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import userRoutes from './routes/userRoutes.js'
+import plasticTypeRoutes from './routes/plasticTypeRouter.js'
 
 const port = process.env.PORT || 8000
 const app = express()
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/users', userRoutes)
+app.use('/api/plasticTypes', plasticTypeRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
